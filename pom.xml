@@ -121,7 +121,9 @@
                             <generateReleasePoms>false</generateReleasePoms>
                             <autoVersionSubmodules>true</autoVersionSubmodules>
                             <tagNameFormat>@{project.version}</tagNameFormat>
-                            <releaseProfiles>release</releaseProfiles>
+                            <releaseProfiles>local-maven-repo</releaseProfiles>
+                            <preparationGoals>clean</preparationGoals>
+                            <completionGoals>clean</completionGoals>
                         </configuration>
                     </plugin>
                 </plugins>

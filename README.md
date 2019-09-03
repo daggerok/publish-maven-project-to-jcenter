@@ -24,15 +24,12 @@ _dry run_
 
 ```shell script
 ./mvnw clean
-./mvnw --batch-mode release:clean \
-                    release:prepare \
-                    release:perform \
-                      -Dresume=false \
-                      -DdryRun=true \
-                      -DgenerateBackupPoms=false \
-                      -Darguments="-DskipTests" \
-                      -DskipTests \
-                      -s ./settings.xml
+./mvnw release:clean release:prepare release:perform \
+        -Dresume=false -DdryRun=true \
+        -DgenerateBackupPoms=false \
+        -Darguments="-DskipTests" \
+        -DskipTests --batch-mode \
+        -s ./settings.xml
 #if something goes wrong:
 #./mvnw release:rollback
 ```
@@ -41,7 +38,7 @@ _release_
 
 ```shell script
 ./mvnw release:clean release:prepare release:perform \
-        -Pmaven-release-plugin,publish-to-github -s ./settings.xml \
+        -Pmaven-release-plugin -s ./settings.xml \
         -DgenerateBackupPoms=false \
         -Dresume=false \
         -DdryRun=false \

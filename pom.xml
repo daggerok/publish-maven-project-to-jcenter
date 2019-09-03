@@ -117,6 +117,7 @@
                         <artifactId>maven-release-plugin</artifactId>
                         <version>${maven-release-plugin.version}</version>
                         <configuration>
+                            <arguments>-DskipTests -Dmaven.deploy.skip=true</arguments>
                             <autoVersionSubmodules>true</autoVersionSubmodules>
                             <generateReleasePoms>false</generateReleasePoms>
                             <autoVersionSubmodules>true</autoVersionSubmodules>

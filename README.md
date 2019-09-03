@@ -25,9 +25,9 @@ _dry run_
 ```shell script
 ./mvnw clean
 ./mvnw release:clean release:prepare release:perform \
+        -Darguments="-DskipTests -Dmaven.deploy.skip=true" \
         -Dresume=false -DdryRun=true \
         -DgenerateBackupPoms=false \
-        -Darguments="-DskipTests" \
         -DskipTests --batch-mode \
         -s ./settings.xml
 #if something goes wrong:
@@ -38,6 +38,7 @@ _release_
 
 ```shell script
 ./mvnw release:clean release:prepare release:perform \
+        -Darguments="-DskipTests -Dmaven.deploy.skip=true -P" \
         -Pmaven-release-plugin -s ./settings.xml \
         -DgenerateBackupPoms=false \
         -Dresume=false \

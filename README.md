@@ -18,6 +18,14 @@ java -jar app/target/*-all.jar
 ./mvnw -P publish-locally
 ```
 
+## maven-release-plugin
+
+```shell script
+./mvnw clean
+./mvnw -Dresume=false -DdryRun=true release:prepare
+./mvnw -Dresume=false release:prepare release:perform
+```
+
 ## publish project artifacts as maven repository to github
 
 ```shell script
@@ -39,14 +47,6 @@ java -jar app/target/*-all.jar
   ./mvnw clean package
   ./mvnw -P upload-github-release -pl :publish-maven-project-to-jcenter -s settings.xml
   ```
-
-## maven-release-plugin
-
-```shell script
-./mvnw clean
-./mvnw -Dresume=false -DdryRun=true release:prepare
-./mvnw -Dresume=false release:prepare release:perform
-```
 
 ## publish project artifacts to bintray jcenter maven repository
 

@@ -40,14 +40,13 @@ _dry run_
 _release_
 
 ```shell script
-./mvnw --batch-mode release:clean \
-                    release:prepare \
-                    release:perform \
-                      -Dresume=false \
-                      -DdryRun=false \
-                      -DgenerateBackupPoms=false \
-                      -DskipTests \
-                      -s ./settings.xml
+./mvnw release:clean release:prepare release:perform \
+        -P maven-release-plugin -s ./settings.xml \
+        -DgenerateBackupPoms=false \
+        -Dresume=false \
+        -DdryRun=false \
+        -DskipTests \
+        --batch-mode
 #if something goes wrong:
 #./mvnw release:rollback -s ./settings.xml
 ```

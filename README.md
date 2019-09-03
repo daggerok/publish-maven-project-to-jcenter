@@ -1,24 +1,24 @@
 # publish maven projects to jcenter bintray
 
-_build_
+## build
 
 ```shell script
 ./mvnw
 ```
 
-_run_
+## run
 
 ```shell script
 java -jar app/target/*-all.jar
 ```
 
-_publish project artifacts as maven repository to local filesystem_
+# publish project artifacts as maven repository to local filesystem
 
 ```shell script
 ./mvnw -P publish-locally
 ```
 
-_publish project artifacts as maven repository to github_
+## publish project artifacts as maven repository to github
 
 ```shell script
 ./mvnw clean
@@ -27,7 +27,7 @@ _publish project artifacts as maven repository to github_
 ./mvnw -P publish-to-github -pl :publish-maven-project-to-jcenter
 ```
 
-_upload github release_
+## upload github release
 
 * prepare [settings.xml](settings.xml) file:
   ```shell script
@@ -40,7 +40,15 @@ _upload github release_
   ./mvnw -P upload-github-release -pl :publish-maven-project-to-jcenter -s settings.xml
   ```
 
-_publish project artifacts to bintray jcenter maven repository_
+## maven-release-plugin
+
+```shell script
+./mvnw clean
+./mvnw -Dresume=false -DdryRun=true release:prepare
+./mvnw -Dresume=false release:prepare release:perform
+```
+
+## publish project artifacts to bintray jcenter maven repository
 
 * update [settings.xml](./settings.xml) file accordingly //servers/server/bintray-daggerok-repo
   username => bintray API key
@@ -48,3 +56,7 @@ _publish project artifacts to bintray jcenter maven repository_
 * checkout manually to created tag and/or trigger via CI job automatically project tag artifacts publishing to jcenter bintray maven repository:
 
 _TODO: implements me..._
+
+_links_
+
+* [fix IDEA ${maven.multiModuleProjectDirectory} problem](https://stackoverflow.com/questions/29983683/dmaven-multimoduleprojectdirectory-not-set-issue-with-maven-and-intellij)

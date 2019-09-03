@@ -20,10 +20,29 @@ java -jar app/target/*-all.jar
 
 ## maven-release-plugin
 
+_either_
+
 ```shell script
 ./mvnw clean
-./mvnw -Dresume=false -DdryRun=true release:prepare
-./mvnw -Dresume=false release:prepare release:perform
+./mvnw --batch-mode release:clean \
+                    release:prepare \
+                    release:perform \
+                      -Dresume=false \
+                      -DdryRun=true \
+                      -DgenerateBackupPoms=false \
+                      -DskipTests -Dgroups=!e2e \
+                      -Darguments="-DskipTests -Dgroups=!e2e"
+#if something goes wrong:
+#./mvnw release:rollback
+```
+
+_or_
+
+```shell script
+./mvnw clean
+./mvnw --batch-mode -Dresume=false -DdryRun=true release:clean release:prepare
+./mvnw --batch-mode -Dresume=false release:prepare release:perform
+#./mvnw release:rollback
 ```
 
 ## publish project artifacts as maven repository to github

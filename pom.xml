@@ -96,6 +96,7 @@
         <profile>
             <id>publish-locally</id>
             <build>
+                <!-- ./mvnw -P publish-locally -->
                 <defaultGoal>clean deploy</defaultGoal>
             </build>
             <distributionManagement>
@@ -108,7 +109,12 @@
 
         <profile>
             <id>publish-to-github</id>
-            <build><!-- ./mvnw -P github-deploy -pl :publish-maven-project-to-jcenter -->
+            <build>
+                <!--
+                ./mvnw clean
+                ./mvnw -P publish-locally
+                ./mvnw -P publish-to-github -pl :publish-maven-project-to-jcenter
+                -->
                 <defaultGoal>scm-publish:publish-scm</defaultGoal>
                 <plugins>
                     <plugin>
@@ -134,8 +140,12 @@
 
         <profile>
             <id>upload-github-release</id>
-            <build><!-- publish local maven artifacts (mvn deploy) from target/.m2/repository folder to github
-                  ./mvnw -P create-github-release -pl :publish-maven-project-to-jcenter -->
+            <build>
+                <!--
+                release maven artifacts (mvn deploy -P publish-locally) from target/.m2/repository to github repo
+                ./mvnw clean package
+                ./mvnw -P upload-github-release -pl :publish-maven-project-to-jcenter
+                -->
                 <defaultGoal>de.jutzig:github-release-plugin:1.1.1:release</defaultGoal>
                 <plugins>
                     <plugin>

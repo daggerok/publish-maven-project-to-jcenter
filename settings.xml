@@ -1,5 +1,16 @@
-<server>
-    <id>bintray-daggerok-daggerok</id>
-    <username>daggerok</username>
-    <password>**********</password>
-</server>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <servers>
+        <server>
+            <id>bintray-daggerok-repo</id>
+            <username>daggerok</username>
+            <password>**********</password>
+        </server>
+        <server>
+            <id>github</id>
+            <username>daggerok</username>
+            <password>**********</password>
+        </server>
+    </servers>
+</settings>

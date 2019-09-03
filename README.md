@@ -1,4 +1,4 @@
-# publish maven projects to jcenter bintray
+# publish maven projects to jcenter bintray [![Build Status](https://travis-ci.org/daggerok/publish-maven-project-to-jcenter.svg?branch=master)](https://travis-ci.org/daggerok/publish-maven-project-to-jcenter)
 
 ## build
 
@@ -31,7 +31,8 @@ _either_
                       -DdryRun=true \
                       -DgenerateBackupPoms=false \
                       -DskipTests -Dgroups=!e2e \
-                      -Darguments="-DskipTests -Dgroups=!e2e"
+                      -Darguments="-DskipTests -Dgroups=!e2e" \
+                      -s ./settings.xml
 #if something goes wrong:
 #./mvnw release:rollback
 ```
@@ -43,7 +44,7 @@ _or_
 ./mvnw --batch-mode -Dresume=false -DdryRun=true release:clean release:prepare -DgenerateReleasePoms=false
 # if everything is great:
 ./mvnw --batch-mode -Dresume=false -DdryRun=true release:clean
-./mvnw --batch-mode -Dresume=false release:prepare release:perform
+./mvnw --batch-mode -Dresume=false release:prepare release:perform -s ./settings.xml
 # if errors occurs:
 #./mvnw release:rollback
 ```
@@ -67,7 +68,7 @@ _or_
 * run commands:
   ```shell script
   ./mvnw clean package
-  ./mvnw -P upload-github-release -pl :publish-maven-project-to-jcenter -s settings.xml
+  ./mvnw -P upload-github-release -pl :publish-maven-project-to-jcenter -s ./settings.xml
   ```
 
 ## publish project artifacts to bintray jcenter maven repository

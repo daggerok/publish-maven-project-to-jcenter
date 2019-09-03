@@ -25,7 +25,8 @@ _dry run_
 ```shell script
 ./mvnw clean
 ./mvnw release:clean release:prepare release:perform \
-        -Darguments="-DskipTests -Dmaven.deploy.skip=true" \
+        -Darguments="-DskipTests -Dmaven.deploy.skip=true -Pmaven-release-plugin,publish-locally" \
+        -Pmaven-release-plugin,publish-locally \
         -Dresume=false -DdryRun=true \
         -DgenerateBackupPoms=false \
         -DskipTests --batch-mode \
@@ -38,8 +39,8 @@ _release_
 
 ```shell script
 ./mvnw release:clean release:prepare release:perform \
-        -Darguments="-DskipTests -Dmaven.deploy.skip=true -P" \
-        -Pmaven-release-plugin -s ./settings.xml \
+        -Darguments="-DskipTests -Dmaven.deploy.skip=true -Pmaven-release-plugin,publish-locally" \
+        -Pmaven-release-plugin,publish-locally -s ./settings.xml \
         -DgenerateBackupPoms=false \
         -Dresume=false \
         -DdryRun=false \

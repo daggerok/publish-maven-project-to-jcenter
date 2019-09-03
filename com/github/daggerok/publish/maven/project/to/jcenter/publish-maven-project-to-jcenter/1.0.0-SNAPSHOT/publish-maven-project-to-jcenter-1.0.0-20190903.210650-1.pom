@@ -108,7 +108,7 @@
 
         <profile>
             <id>publish-to-github</id>
-            <build><!-- ./mvnw -P github-deploy -pl :publish-maven-project-to-jcenter -->
+            <build><!-- ./mvnw -P publish-to-github -pl :publish-maven-project-to-jcenter -->
                 <defaultGoal>scm-publish:publish-scm</defaultGoal>
                 <plugins>
                     <plugin>

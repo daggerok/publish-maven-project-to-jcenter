@@ -30,8 +30,8 @@ _either_
                       -Dresume=false \
                       -DdryRun=true \
                       -DgenerateBackupPoms=false \
-                      -DskipTests -Dgroups=!e2e \
-                      -Darguments="-DskipTests -Dgroups=!e2e" \
+                      -Darguments="-DskipTests" \
+                      -DskipTests \
                       -s ./settings.xml
 #if something goes wrong:
 #./mvnw release:rollback

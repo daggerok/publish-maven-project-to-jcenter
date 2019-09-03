@@ -40,7 +40,7 @@ _or_
 
 ```shell script
 ./mvnw clean
-./mvnw --batch-mode -Dresume=false -DdryRun=true release:clean release:prepare -DgenerateBackupPoms=false
+./mvnw --batch-mode -Dresume=false -DdryRun=true release:clean release:prepare -DgenerateReleasePoms=false
 ./mvnw --batch-mode -Dresume=false release:prepare release:perform
 #./mvnw release:rollback
 ```

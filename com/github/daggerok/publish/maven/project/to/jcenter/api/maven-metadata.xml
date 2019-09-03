@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.github.daggerok.publish.maven.project.to.jcenter</groupId>
+  <artifactId>api</artifactId>
+  <versioning>
+    <versions>
+      <version>1.0.0-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20190903205859</lastUpdated>
+  </versioning>
+</metadata>

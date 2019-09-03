@@ -41,7 +41,7 @@ _release_
 
 ```shell script
 ./mvnw release:clean release:prepare release:perform \
-        -P maven-release-plugin -s ./settings.xml \
+        -Pmaven-release-plugin,publish-to-github -s ./settings.xml \
         -DgenerateBackupPoms=false \
         -Dresume=false \
         -DdryRun=false \

@@ -83,3 +83,4 @@ _TODO: implements me..._
 _links_
 
 * [fix IDEA ${maven.multiModuleProjectDirectory} problem](https://stackoverflow.com/questions/29983683/dmaven-multimoduleprojectdirectory-not-set-issue-with-maven-and-intellij)
+* [maven-release-plugin](https://maven.apache.org/maven-release/maven-release-plugin/examples/update-versions.html)

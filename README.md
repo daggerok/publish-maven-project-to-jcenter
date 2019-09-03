@@ -29,12 +29,16 @@ _publish project artifacts as maven repository to github_
 
 _upload github release_
 
-* update [settings.xml](settings.xml) file accordingly: //servers/server/github
-
-```shell script
-./mvnw clean package
-./mvnw -P upload-github-release -pl :publish-maven-project-to-jcenter
-```
+* prepare [settings.xml](settings.xml) file:
+  ```shell script
+  cp -Rf settings.template.xml settings.xml
+  ```
+* update it accordingly: //servers/server/github
+* run commands:
+  ```shell script
+  ./mvnw clean package
+  ./mvnw -P upload-github-release -pl :publish-maven-project-to-jcenter -s settings.xml
+  ```
 
 _publish project artifacts to bintray jcenter maven repository_
 

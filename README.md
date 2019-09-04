@@ -92,6 +92,7 @@ _release_
 
 * update [settings.xml](./settings.xml) file accordingly //servers/server/bintray-daggerok-repo
   username => bintray API key
+* open https://bintray.com/daggerok/daggerok and create new package, ie: publish-maven-project-to-jcenter
 * prepare / perform release
 * checkout manually to created tag and/or trigger via CI job automatically project tag artifacts publishing to jcenter bintray maven repository:
 

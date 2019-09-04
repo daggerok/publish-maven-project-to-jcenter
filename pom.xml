@@ -94,7 +94,7 @@
     <build>
         <defaultGoal>clean package</defaultGoal>
 
-        <plugins>
+        <!--<plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -107,7 +107,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- deploy test jar -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -119,7 +118,7 @@
                     </execution>
                 </executions>
             </plugin>
-        </plugins>
+        </plugins>-->
     </build>
 
     <profiles>

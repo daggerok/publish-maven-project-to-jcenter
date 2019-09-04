@@ -20,7 +20,7 @@ java -jar app/target/*-all.jar
 
 ## maven-release-plugin (locally)
 
-_dry run_
+_local dry run_
 
 ```shell script
 ./mvnw clean
@@ -35,13 +35,30 @@ _dry run_
 #./mvnw release:rollback
 ```
 
-_release_
+_local release_
 
 ```shell script
 ./mvnw release:clean release:prepare release:perform \
         -Darguments="-DskipTests -Dmaven.deploy.skip=true -Pmaven-release-locally,publish-locally" \
         -Pmaven-release-locally,publish-locally -s ./settings.xml \
         -DgenerateBackupPoms=false \
+        -Dresume=false \
+        -DdryRun=false \
+        -DskipTests \
+        --batch-mode
+#if something goes wrong:
+#./mvnw release:rollback -s ./settings.xml
+```
+
+## maven-release-plugin (jcenter)
+
+_release_
+
+```shell script
+./mvnw release:clean release:prepare release:perform \
+        -DgenerateBackupPoms=false \
+        -Darguments="-DskipTests" \
+        -s ./settings.xml \
         -Dresume=false \
         -DdryRun=false \
         -DskipTests \

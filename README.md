@@ -58,6 +58,7 @@ _release_
 ./mvnw release:clean release:prepare release:perform \
         -DgenerateBackupPoms=false \
         -Darguments="-DskipTests" \
+        -Pmaven-release-jcenter \
         -s ./settings.xml \
         -Dresume=false \
         -DdryRun=false \

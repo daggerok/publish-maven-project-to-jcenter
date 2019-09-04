@@ -4,8 +4,8 @@
   <artifactId>publish-maven-project-to-jcenter</artifactId>
   <versioning>
     <versions>
-      <version>1.0.0-SNAPSHOT</version>
+      <version>1.0.5-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20190903210650</lastUpdated>
+    <lastUpdated>20190904000502</lastUpdated>
   </versioning>
 </metadata>

@@ -1,4 +1,6 @@
-# publish maven projects to jcenter bintray [![Build Status](https://travis-ci.org/daggerok/publish-maven-project-to-jcenter.svg?branch=master)](https://travis-ci.org/daggerok/publish-maven-project-to-jcenter)
+# publish maven projects to jcenter bintray [ ![Download](https://api.bintray.com/packages/daggerok/daggerok/publish-maven-project-to-jcenter/images/download.svg) ](https://bintray.com/daggerok/daggerok/publish-maven-project-to-jcenter/_latestVersion)
+
+this repo example has been published [here](https://bintray.com/daggerok/daggerok/publish-maven-project-to-jcenter#files/com/github/daggerok/publish/maven/project/to/jcenter)
 
 ## build
 

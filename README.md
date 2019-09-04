@@ -70,7 +70,7 @@ _release_
 ./mvnw clean
 ./mvnw -P publish-locally
 # create manually on your github repository branch: maven
-./mvnw -P publish-to-github -pl :publish-maven-project-to-jcenter
+./mvnw -P publish-to-github -pl :publish-maven-project-to-jcenter -s settings.xml
 ```
 
 ## upload github release
@@ -83,8 +83,10 @@ _release_
 * run commands:
   ```shell script
   ./mvnw clean package
-  ./mvnw -P upload-github-release -pl :publish-maven-project-to-jcenter -s ./settings.xml
+  ./mvnw -P upload-github-release -pl :publish-maven-project-to-jcenter -s settings.xml
   ```
+
+<!--
 
 ## publish project artifacts to bintray jcenter maven repository
 
@@ -94,6 +96,8 @@ _release_
 * checkout manually to created tag and/or trigger via CI job automatically project tag artifacts publishing to jcenter bintray maven repository:
 
 _TODO: implements me..._
+
+-->
 
 _links_
 

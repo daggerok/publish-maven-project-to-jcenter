@@ -80,7 +80,7 @@
 
     <distributionManagement>
         <repository>
-            <id>bintray-daggerok-repo</id>
+            <id>bintray-daggerok-daggerok</id>
             <url>https://api.bintray.com/maven/daggerok/daggerok/publish-maven-project-to-jcenter/</url>
         </repository>
     </distributionManagement>

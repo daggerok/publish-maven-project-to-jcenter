@@ -33,36 +33,6 @@ java -jar app/target/*-all.jar
 #./mvnw release:rollback -s ./settings.xml
 ```
 
-## maven-release-plugin (jcenter)
-
-```shell script
-./mvnw release:clean release:prepare release:perform \
-        -DgenerateBackupPoms=false \
-        -Darguments="-DskipTests" \
-        -Pmaven-release-jcenter \
-        -s ./settings.xml \
-        -Dresume=false \
-        -DdryRun=false \
-        -DskipTests \
-        --batch-mode
-#if something goes wrong:
-#./mvnw release:rollback -s ./settings.xml
-```
-
-<!--
-
-```shell script
-./mvnw clean
-./mvnw --batch-mode -Dresume=false -DdryRun=true release:clean release:prepare -DgenerateReleasePoms=false
-# if everything is great:
-./mvnw --batch-mode -Dresume=false -DdryRun=true release:clean
-./mvnw --batch-mode -Dresume=false release:prepare release:perform -s ./settings.xml
-# if errors occurs:
-#./mvnw release:rollback
-```
-
--->
-
 ## publish project artifacts as maven repository to github
 
 ```shell script
@@ -85,19 +55,28 @@ java -jar app/target/*-all.jar
   ./mvnw -P upload-github-release -pl :publish-maven-project-to-jcenter -s settings.xml
   ```
 
-<!--
 
 ## publish project artifacts to bintray jcenter maven repository
 
+_by using maven-release-plugin_
+
 * update [settings.xml](./settings.xml) file accordingly //servers/server/bintray-daggerok-repo
   username => bintray API key
-* open https://bintray.com/daggerok/daggerok and create new package, ie: publish-maven-project-to-jcenter
-* prepare / perform release
-* checkout manually to created tag and/or trigger via CI job automatically project tag artifacts publishing to jcenter bintray maven repository:
-
-_TODO: implements me..._
-
--->
+* first time open https://bintray.com/daggerok/daggerok and create new package, ie: publish-maven-project-to-jcenter
+* once repository was created, prepare / perform release using maven-release-plugin
+  ```shell script
+  ./mvnw release:clean release:prepare release:perform \
+          -DgenerateBackupPoms=false \
+          -Darguments="-DskipTests" \
+          -Pmaven-release-jcenter \
+          -s ./settings.xml \
+          -Dresume=false \
+          -DdryRun=false \
+          -DskipTests \
+          --batch-mode
+  #if something goes wrong:
+  #./mvnw release:rollback -s ./settings.xml
+  ```
 
 _links_
 

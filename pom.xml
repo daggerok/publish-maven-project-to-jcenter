@@ -138,34 +138,6 @@
         </profile>
 
         <profile>
-            <id>maven-release-locally</id>
-            <build>
-                <!--
-                ./mvnw -Dresume=false -DdryRun=true release:prepare
-                ./mvnw -Dresume=false release:prepare release:perform
-                -->
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-release-plugin</artifactId>
-                        <version>${maven-release-plugin.version}</version>
-                        <configuration>
-                            <arguments>-DskipTests -Dmaven.deploy.skip=true -Ppublish-locally</arguments>
-                            <!--<arguments>-DskipTests -Dmaven.deploy.skip=true</arguments>-->
-                            <autoVersionSubmodules>true</autoVersionSubmodules>
-                            <generateReleasePoms>false</generateReleasePoms>
-                            <autoVersionSubmodules>true</autoVersionSubmodules>
-                            <tagNameFormat>@{project.version}</tagNameFormat>
-                            <releaseProfiles>local-maven-repo</releaseProfiles>
-                            <preparationGoals>clean</preparationGoals>
-                            <completionGoals>clean</completionGoals>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-
-        <profile>
             <id>publish-to-github</id>
             <build>
                 <!--

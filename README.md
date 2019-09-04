@@ -18,15 +18,15 @@ java -jar app/target/*-all.jar
 ./mvnw -P publish-locally
 ```
 
-## maven-release-plugin
+## maven-release-plugin (locally)
 
 _dry run_
 
 ```shell script
 ./mvnw clean
 ./mvnw release:clean release:prepare release:perform \
-        -Darguments="-DskipTests -Dmaven.deploy.skip=true -Pmaven-release-plugin,publish-locally" \
-        -Pmaven-release-plugin,publish-locally \
+        -Darguments="-DskipTests -Dmaven.deploy.skip=true -Pmaven-release-locally,publish-locally" \
+        -Pmaven-release-locally,publish-locally \
         -Dresume=false -DdryRun=true \
         -DgenerateBackupPoms=false \
         -DskipTests --batch-mode \
@@ -39,8 +39,8 @@ _release_
 
 ```shell script
 ./mvnw release:clean release:prepare release:perform \
-        -Darguments="-DskipTests -Dmaven.deploy.skip=true -Pmaven-release-plugin,publish-locally" \
-        -Pmaven-release-plugin,publish-locally -s ./settings.xml \
+        -Darguments="-DskipTests -Dmaven.deploy.skip=true -Pmaven-release-locally,publish-locally" \
+        -Pmaven-release-locally,publish-locally -s ./settings.xml \
         -DgenerateBackupPoms=false \
         -Dresume=false \
         -DdryRun=false \

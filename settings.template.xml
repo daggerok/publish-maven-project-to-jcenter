@@ -3,6 +3,11 @@
           xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
     <servers>
         <server>
+            <id>bintray-[YOUR_USERNAME]-[REPOSITORY_NAME]</id>
+            <username>[YOUR_USERNAME]</username>
+            <password>**********</password>
+        </server>
+        <server>
             <id>bintray-daggerok-daggerok</id>
             <username>daggerok</username>
             <password>**********</password>

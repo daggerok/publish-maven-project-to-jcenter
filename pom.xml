@@ -79,9 +79,15 @@
     </dependencyManagement>
 
     <distributionManagement>
+        <!--<repository>
+            <id>bintray-[YOUR_USERNAME]-[REPOSITORY_NAME]</id>
+            <name>[YOUR_USERNAME]-[REPOSITORY_NAME]</name>
+            <url>https://api.bintray.com/maven/[YOUR_USERNAME]/[REPOSITORY_NAME]/[PACKAGE_NAME]/;publish=1</url>
+        </repository>-->
         <repository>
             <id>bintray-daggerok-daggerok</id>
-            <url>https://api.bintray.com/maven/daggerok/daggerok/publish-maven-project-to-jcenter/</url>
+            <name>daggerok-daggerok</name>
+            <url>https://api.bintray.com/maven/daggerok/daggerok/publish-maven-project-to-jcenter//;publish=1</url>
         </repository>
     </distributionManagement>
 
@@ -105,7 +111,34 @@
         </profile>
 
         <profile>
-            <id>maven-release-plugin</id>
+            <id>maven-release-locally</id>
+            <build>
+                <!--
+                ./mvnw -Dresume=false release:prepare release:perform -Darguments="-Dmaven.deploy.skip=true" -Pmaven-release-locally,publish-locally -DgenerateBackupPoms=false -DskipTests -B -s ./settings.xml
+                -->
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-release-plugin</artifactId>
+                        <version>${maven-release-plugin.version}</version>
+                        <configuration>
+                            <arguments>-DskipTests -Dmaven.deploy.skip=true -Ppublish-locally</arguments>
+                            <!--<arguments>-DskipTests -Dmaven.deploy.skip=true</arguments>-->
+                            <autoVersionSubmodules>true</autoVersionSubmodules>
+                            <generateReleasePoms>false</generateReleasePoms>
+                            <autoVersionSubmodules>true</autoVersionSubmodules>
+                            <tagNameFormat>@{project.version}</tagNameFormat>
+                            <releaseProfiles>local-maven-repo</releaseProfiles>
+                            <preparationGoals>clean</preparationGoals>
+                            <completionGoals>clean</completionGoals>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>maven-release-locally</id>
             <build>
                 <!--
                 ./mvnw -Dresume=false -DdryRun=true release:prepare
